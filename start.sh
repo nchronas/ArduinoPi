@@ -10,7 +10,7 @@ dropbear -E -F-s &
 mkdir /app/lib
 cd /app
 
-${ardBoard:=atmega328}
+export ardBoard=${ardBoard:=atmega328}
 
 ino build -m $ardBoard
 ino upload -m $ardBoard
