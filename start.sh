@@ -6,5 +6,11 @@ echo "root:$PASSWD" | chpasswd
 #Spawn dropbear
 dropbear -E -F-s &
 
+#use ino
+mkdir /app/lib
+
+ino build -m atmega328
+ino upload -m atmega328
+
 #start your application from here...
 python app/server.py
