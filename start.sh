@@ -10,8 +10,10 @@ dropbear -E -F-s &
 mkdir /app/lib
 cd /app
 
-ino build -m atmega328
-ino upload -m atmega328
+${ardBoard:=atmega328}
+
+ino build -m $ardBoard
+ino upload -m $ardBoard
 
 #start your application from here...
 python /app/server.py
