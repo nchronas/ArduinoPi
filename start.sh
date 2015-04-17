@@ -5,5 +5,6 @@ export PASSWD=${PASSWD:=root}
 echo "root:$PASSWD" | chpasswd
 #Spawn dropbear
 dropbear -E -F-s &
+
 #start your application from here...
 python app/server.py
