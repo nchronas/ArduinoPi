@@ -6,14 +6,22 @@ echo "root:$PASSWD" | chpasswd
 #Spawn dropbear
 dropbear -E -F-s &
 
-#use ino
-mkdir /app/lib
-cd /app
+DIFF=$(diff /app/sketch.ino /data/sketch.ino) 
+if [ "$DIFF" != "" ] 
+then
+    echo "New file for programming"
 
-export ardBoard=${ardBoard:=atmega328}
+    #use ino
+    mkdir /app/lib
+    cd /app
 
-ino build -m $ardBoard
-ino upload -m $ardBoard
+    export ardBoard=${ardBoard:=atmega328}
+
+    ino build -m $ardBoard
+    ino upload -m $ardBoard
+
+    cp -n /app/sketch.ino /data/
+fi
 
 #start your application from here...
 python /app/server.py
