@@ -8,6 +8,7 @@ dropbear -E -F-s &
 
 #use ino
 mkdir /app/lib
+cd /app
 
 ino build -m atmega328
 ino upload -m atmega328
