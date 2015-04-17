@@ -8,6 +8,6 @@ nano \
 RUN pip install ino
 
 COPY . /app
-COPY sketch.ino /app/src
+COPY sketch.ino /app/src/
 
 CMD ["bash", "/app/start.sh"]
