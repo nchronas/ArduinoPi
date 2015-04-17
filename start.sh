@@ -6,8 +6,9 @@ echo "root:$PASSWD" | chpasswd
 #Spawn dropbear
 dropbear -E -F-s &
 
+
 DIFF=$(diff /app/sketch.ino /data/sketch.ino) 
-if [ "$DIFF" != "" ] 
+if [ "$DIFF" != "" -o ! -f /data/sketch.ino] 
 then
     echo "New file for programming"
 
