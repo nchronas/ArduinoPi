@@ -14,4 +14,4 @@ ino build -m atmega328
 ino upload -m atmega328
 
 #start your application from here...
-python app/server.py
+python /app/server.py
